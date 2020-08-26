@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+#container{
+	width: 400px:
+}
+
+h1{
+	font-size: 16pt;
+	border-bottom: solid 1px mediumseagreen;
+}
+
+bottom{
+	font-size: 8px;
+}
+
+dt{
+	font-size: 12pt;
+	border-left: solid 12px mediumseagreen;
+	margin: 12px 0px 0px 0px;
+	padding: 0px 0px 0px 5px;
+}
+
+dd{
+	margin: 0px 0px 0px 0px;
+}
+
+p{
+	font-size: 10pt;
+	margin: 5px 0px 5px 0px;
+}
+
+.evaluate{
+	font-size: 9pt;
+	margin: 0px 0px 0px 10px;
+}
+
+.close{
+	display: none;
+}
+
+.open{
+	display: inline;
+}

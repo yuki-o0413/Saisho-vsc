@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>frequently asked questions</title>
+<link rel="stylesheet" href="css/style.css">
+<script>
+	function allOpen(){
+		document.getElementsByTagName('dd').item(0).className = 'open';
+	}
+</script>
+</head>
+<body>
+	<div id="wrappar">
+		<h1>frequently asked questions</h1>
+		<p>when clicked the questions show you the answers</p>
+		<button onclick="allOpen();">all open</button>
+		<button>close</button>
+		<dl>
+			<dt>how to pay</dt>
+			<dd class="close" id="answer1">
+				<p>we can accept every kind of credit card, electric money, convinience pay, bank transfer, </p>
+				<div class="evaluate">
+					was this useful?<a href="#">Yes</a>&nbsp;<a href="#">No</a><br>
+				</div>
+			</dd>
+			<dt>how much the chancel fee?</dt>
+			<dd class="close">
+				<p>the cancel fee is free untill before 14 days. it's 30% between 13 days before and 7 days before,
+				 it's 50% between 6 days before and 2 days before. it's 100% between the day before and the day.
+				 and we don't take from you any cancel fee if the event was canceled due to host's problem or
+				  huge desaster.</p>
+				<div class="evaluate">
+					was this useful?<a href="#">Yes</a>&nbsp;<a href="#">No</a><br>
+				</div>
+			</dd>
+			<dt>how to change the order of reservation</dt>
+			<dd class="close">
+				<p>open the URL wroted at e-mail we sent you after your reservation. And login with id and password, and do the modificate procedure.</p>
+				<div class="evaluate">
+					was this useful?<a href="#">Yes</a>&nbsp;<a href="#">No</a><br>
+				</div>
+			</dd>
+		</dl>
+	</div>
+</body>
+</html>
