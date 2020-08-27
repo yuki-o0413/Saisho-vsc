@@ -6,18 +6,44 @@
 	<title>frequently asked questions</title>
 	<link rel="stylesheet" href="css/style.css">
 	<script>
+		var hoge = 10;
+		window.confirm(hoge);
+		hoge++;
+		window.confirm(hoge);
+		function allChange(mode) {
+			var answers = document.getElementsByTagName('dd');
+			for (var i = 0; i < answers.length; i++) {
+				answers.item(i).className = mode;
+			}
+		}
 		function allOpen() {
-			document.getElementsByTagName('dd').item(0).className = 'open';
+			allChange('open');
 		}
 		function allClose() {
-			document.getElementsByTagName('dd').item(0).className = 'close';
+			allChange('close');
 		}
-		function toggleAnswer() {
-			document.getElementsByTagName('dd').item(0).className = 'open';
-			if (document.getElementsByTagName('dd').item(0).className === 'open') {
-				window.confirm('こんにちは');
+		//質問をクリックすると回答が開いて表示される。もう一度質問をクリックすると今度は回答を閉じる
+		function toggleAnswer(num) {
+			var answers = document.getElementsByTagName('dd');
+			if (answers.item(num).className === 'open') {
+				answers.item(num).className = 'close';
 			} else {
-				window.confirm('さようなら');
+				answers.item(num).className = 'open';
+			}
+		}
+
+		function addStar(num) {
+			var star = document.createElement('img');
+			star.src = 'star.png';
+			var elms = document.getElementsByClassName('evaluate');
+			elms.item(num).appendChild(star);
+		}
+
+		function removeStar(num) {
+			var elms = document.getElementsByClassName('evaluate');
+			var elm = elms.item(num);
+			if (elm.lastChild.nodeName === 'IMG') {//remove only 'img'.
+				elm.removeChild(elm.lastChild);
 			}
 		}
 	</script>
@@ -30,29 +56,32 @@
 		<button onclick="allOpen();">all open</button>
 		<button onclick="allClose();">close</button>
 		<dl>
-			<dt onclick="toggleAnswer();">how to pay</dt>
+			<dt onclick="toggleAnswer(0);">how to pay</dt>
 			<dd class="close">
 				<p>we can accept every kind of credit card, electric money, convinience pay, bank transfer, </p>
 				<div class="evaluate">
-					was this useful?<a href="#">Yes</a>&nbsp;<a href="#">No</a><br>
+					was this useful? <a href="#" onclick="addStar(0);">Yes</a>&nbsp;<a href="#"
+						onclick="removeStar(0);">No</a><br>
 				</div>
 			</dd>
-			<dt>how much the chancel fee?</dt>
+			<dt onclick="toggleAnswer(1);">how much the chancel fee?</dt>
 			<dd class="close">
 				<p>the cancel fee is free untill before 14 days. it's 30% between 13 days before and 7 days before,
 					it's 50% between 6 days before and 2 days before. it's 100% between the day before and the day.
 					and we don't take from you any cancel fee if the event was canceled due to host's problem or
 					huge desaster.</p>
 				<div class="evaluate">
-					was this useful?<a href="#">Yes</a>&nbsp;<a href="#">No</a><br>
+					was this useful? <a href="#" onclick="addStar(1);">Yes</a>&nbsp;<a href="#"
+						onclick="removeStar(1);">No</a><br>
 				</div>
 			</dd>
-			<dt>how to change the order of reservation</dt>
+			<dt onclick="toggleAnswer(2);">how to change the order of reservation</dt>
 			<dd class="close">
 				<p>open the URL wroted at e-mail we sent you after your reservation. And login with id and password, and
 					do the modificate procedure.</p>
 				<div class="evaluate">
-					was this useful?<a href="#">Yes</a>&nbsp;<a href="#">No</a><br>
+					was this useful? <a href="#" onclick="addStar(2);">Yes</a>&nbsp;<a href="#"
+						onclick="removeStar(2);">No</a><br>
 				</div>
 			</dd>
 		</dl>
