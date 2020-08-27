@@ -15,7 +15,9 @@
 		function toggleAnswer() {
 			document.getElementsByTagName('dd').item(0).className = 'open';
 			if (document.getElementsByTagName('dd').item(0).className === 'open') {
-				window.confirm('こんにちは')
+				window.confirm('こんにちは');
+			} else {
+				window.confirm('さようなら');
 			}
 		}
 	</script>
