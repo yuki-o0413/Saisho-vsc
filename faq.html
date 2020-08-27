@@ -12,6 +12,12 @@
 		function allClose() {
 			document.getElementsByTagName('dd').item(0).className = 'close';
 		}
+		function toggleAnswer() {
+			document.getElementsByTagName('dd').item(0).className = 'open';
+			if (document.getElementsByTagName('dd').item(0).className === 'open') {
+				window.confirm('こんにちは')
+			}
+		}
 	</script>
 </head>
 
@@ -22,7 +28,7 @@
 		<button onclick="allOpen();">all open</button>
 		<button onclick="allClose();">close</button>
 		<dl>
-			<dt>how to pay</dt>
+			<dt onclick="toggleAnswer();">how to pay</dt>
 			<dd class="close">
 				<p>we can accept every kind of credit card, electric money, convinience pay, bank transfer, </p>
 				<div class="evaluate">
