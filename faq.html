@@ -10,6 +10,19 @@
 		window.confirm(hoge);
 		hoge++;
 		window.confirm(hoge);
+		
+		window.onload = init;
+		function init(){
+			var buttons = document.getElementsByTagName('button');
+			buttons.item(0).onclick = allOpen;
+			buttons.item(1).onclick = allClose;
+		
+			var question = document.getElementsByTagName('dt');
+			for(var i = 0; i < questions.length; i++){
+				question.item(i).onclick = toggleAnswer;
+			}
+		}
+		
 		function allChange(mode) {
 			var answers = document.getElementsByTagName('dd');
 			for (var i = 0; i < answers.length; i++) {
@@ -23,12 +36,13 @@
 			allChange('close');
 		}
 		//質問をクリックすると回答が開いて表示される。もう一度質問をクリックすると今度は回答を閉じる
-		function toggleAnswer(num) {
-			var answers = document.getElementsByTagName('dd');
-			if (answers.item(num).className === 'open') {
-				answers.item(num).className = 'close';
+		function toggleAnswer(event) {
+			var question = event.target;
+			var answer = question.nextSibling.nextSibling;
+			if (answer.className === 'close') {
+				answer.className = 'open';
 			} else {
-				answers.item(num).className = 'open';
+				answer.className = 'close';
 			}
 		}
 
@@ -53,10 +67,10 @@
 	<div id="wrappar">
 		<h1>frequently asked questions</h1>
 		<p>when clicked the questions show you the answers</p>
-		<button onclick="allOpen();">all open</button>
+		<button>all open</button>
 		<button onclick="allClose();">close</button>
 		<dl>
-			<dt onclick="toggleAnswer(0);">how to pay</dt>
+			<dt>how to pay</dt>
 			<dd class="close">
 				<p>we can accept every kind of credit card, electric money, convinience pay, bank transfer, </p>
 				<div class="evaluate">
@@ -64,7 +78,7 @@
 						onclick="removeStar(0);">No</a><br>
 				</div>
 			</dd>
-			<dt onclick="toggleAnswer(1);">how much the chancel fee?</dt>
+			<dt>how much the chancel fee?</dt>
 			<dd class="close">
 				<p>the cancel fee is free untill before 14 days. it's 30% between 13 days before and 7 days before,
 					it's 50% between 6 days before and 2 days before. it's 100% between the day before and the day.
@@ -75,7 +89,7 @@
 						onclick="removeStar(1);">No</a><br>
 				</div>
 			</dd>
-			<dt onclick="toggleAnswer(2);">how to change the order of reservation</dt>
+			<dt>how to change the order of reservation</dt>
 			<dd class="close">
 				<p>open the URL wroted at e-mail we sent you after your reservation. And login with id and password, and
 					do the modificate procedure.</p>
