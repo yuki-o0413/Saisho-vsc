@@ -17,9 +17,9 @@
 			buttons.item(0).onclick = allOpen;
 			buttons.item(1).onclick = allClose;
 		
-			var question = document.getElementsByTagName('dt');
+			var questions = document.getElementsByTagName('dt');
 			for(var i = 0; i < questions.length; i++){
-				question.item(i).onclick = toggleAnswer;
+				questions.item(i).onclick = toggleAnswer;
 			}
 		}
 		
