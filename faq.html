@@ -21,6 +21,11 @@
 			for(var i = 0; i < questions.length; i++){
 				questions.item(i).onclick = toggleAnswer;
 			}
+
+			var links = document.getElementsByTagName('a');
+			links.item(0).onclick = addStar;
+			links.item(2).onclick = addStar;
+			links.item(4).onclick = addStar;
 		}
 		
 		function allChange(mode) {
@@ -46,11 +51,12 @@
 			}
 		}
 
-		function addStar(num) {
+		function addStar(event) {
 			var star = document.createElement('img');
 			star.src = 'star.png';
-			var elms = document.getElementsByClassName('evaluate');
-			elms.item(num).appendChild(star);
+			var link = event.target;
+			var elm = link.parentNode;
+			elm.appendChild(star);
 		}
 
 		function removeStar(num) {
@@ -74,7 +80,7 @@
 			<dd class="close">
 				<p>we can accept every kind of credit card, electric money, convinience pay, bank transfer, </p>
 				<div class="evaluate">
-					was this useful? <a href="#" onclick="addStar(0);">Yes</a>&nbsp;<a href="#"
+					was this useful? <a href="#">Yes</a>&nbsp;<a href="#"
 						onclick="removeStar(0);">No</a><br>
 				</div>
 			</dd>
@@ -85,7 +91,7 @@
 					and we don't take from you any cancel fee if the event was canceled due to host's problem or
 					huge desaster.</p>
 				<div class="evaluate">
-					was this useful? <a href="#" onclick="addStar(1);">Yes</a>&nbsp;<a href="#"
+					was this useful? <a href="#">Yes</a>&nbsp;<a href="#"
 						onclick="removeStar(1);">No</a><br>
 				</div>
 			</dd>
@@ -94,7 +100,7 @@
 				<p>open the URL wroted at e-mail we sent you after your reservation. And login with id and password, and
 					do the modificate procedure.</p>
 				<div class="evaluate">
-					was this useful? <a href="#" onclick="addStar(2);">Yes</a>&nbsp;<a href="#"
+					was this useful? <a href="#">Yes</a>&nbsp;<a href="#"
 						onclick="removeStar(2);">No</a><br>
 				</div>
 			</dd>
