@@ -24,8 +24,11 @@
 
 			var links = document.getElementsByTagName('a');
 			links.item(0).onclick = addStar;
+			links.item(1).onclick = removeStar;
 			links.item(2).onclick = addStar;
+			links.item(3).onclick = removeStar;
 			links.item(4).onclick = addStar;
+			links.item(5).onclick = removeStar;
 		}
 		
 		function allChange(mode) {
@@ -59,9 +62,9 @@
 			elm.appendChild(star);
 		}
 
-		function removeStar(num) {
-			var elms = document.getElementsByClassName('evaluate');
-			var elm = elms.item(num);
+		function removeStar(event) {
+			var link = event.target;
+			var elm = link.parentNode;
 			if (elm.lastChild.nodeName === 'IMG') {//remove only 'img'.
 				elm.removeChild(elm.lastChild);
 			}
@@ -80,8 +83,7 @@
 			<dd class="close">
 				<p>we can accept every kind of credit card, electric money, convinience pay, bank transfer, </p>
 				<div class="evaluate">
-					was this useful? <a href="#">Yes</a>&nbsp;<a href="#"
-						onclick="removeStar(0);">No</a><br>
+					was this useful? <a href="#">Yes</a>&nbsp;<a href="#">No</a><br>
 				</div>
 			</dd>
 			<dt>how much the chancel fee?</dt>
@@ -91,8 +93,7 @@
 					and we don't take from you any cancel fee if the event was canceled due to host's problem or
 					huge desaster.</p>
 				<div class="evaluate">
-					was this useful? <a href="#">Yes</a>&nbsp;<a href="#"
-						onclick="removeStar(1);">No</a><br>
+					was this useful? <a href="#">Yes</a>&nbsp;<a href="#">No</a><br>
 				</div>
 			</dd>
 			<dt>how to change the order of reservation</dt>
@@ -100,8 +101,7 @@
 				<p>open the URL wroted at e-mail we sent you after your reservation. And login with id and password, and
 					do the modificate procedure.</p>
 				<div class="evaluate">
-					was this useful? <a href="#">Yes</a>&nbsp;<a href="#"
-						onclick="removeStar(2);">No</a><br>
+					was this useful? <a href="#">Yes</a>&nbsp;<a href="#">No</a><br>
 				</div>
 			</dd>
 		</dl>
