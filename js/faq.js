@@ -6,8 +6,12 @@ window.confirm(hoge);
 window.addEventListener('load', init, false);
 function init(){
 	var buttons = document.getElementsByTagName('button');
-	buttons.item(0).addEventListener('click', allOpen, false);
-	buttons.item(1).addEventListener('click', allClose, false);
+	buttons.item(0).addEventListener('click', function(){
+		allChange('open');
+	}, false);
+	buttons.item(1).addEventListener('click', function(){
+		allChange('close');
+	}, false);
 
 	var questions = document.getElementsByTagName('dt');
 	for(var i = 0; i < questions.length; i++){
@@ -25,12 +29,7 @@ function allChange(mode) {
 		answers.item(i).className = mode;
 	}
 }
-function allOpen() {
-	allChange('open');
-}
-function allClose() {
-	allChange('close');
-}
+
 //質問をクリックすると回答が開いて表示される。もう一度質問をクリックすると今度は回答を閉じる
 function toggleAnswer(event) {
 	var question = event.target;
